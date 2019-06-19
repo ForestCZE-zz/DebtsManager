@@ -1,0 +1,42 @@
+﻿<Window x:Class="DebtsManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DebtsManager"
+        mc:Ignorable="d"
+        Title="Debts Manager v1.0" Width="800" Height="450"
+        WindowStartupLocation="CenterScreen"
+        Language="cs-CZ">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Dlužník">
+                    <MenuItem Header="Přidat" Name="addMenuItem" Click="AddMenuItem_Click"/>
+                    <MenuItem Header="Odebrat" Name="removeMenuItem" Click="RemoveMenuItem_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <DataGrid Grid.Row="1"
+                  ColumnWidth="*"
+                  Name="debtorsDataGrid"
+                  Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Jméno" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Částka" Binding="{Binding Amount, StringFormat=C0}"/>
+                <DataGridTextColumn Header="Splaceno" Binding="{Binding Paid, StringFormat=C0}"/>
+                <DataGridTextColumn Header="Zbývající dluh" Binding="{Binding RemainingDebt, StringFormat=C0}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Vytvořeno" Binding="{Binding Created, StringFormat=d. M. yyyy}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

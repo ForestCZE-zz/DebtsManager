@@ -1,0 +1,31 @@
+﻿<Window x:Class="DebtsManager.AddDebtorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DebtsManager"
+        mc:Ignorable="d"
+        Title="Přidat dlužníka" Height="332" Width="300" MinHeight="332" MinWidth="300" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="Images/debtor.png" Stretch="None" Grid.ColumnSpan="2"/>
+        <Label Content="_Jméno" Grid.Row="1" Target="{Binding ElementName=nameTextBox}"/>
+        <Label Content="_Částka" Grid.Row="2" Target="{Binding ElementName=amountTextBox}"/>
+        <Label Content="_Splaceno" Grid.Row="3" Target="{Binding ElementName=paidTextBox}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,5" Name="nameTextBox"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,5" Name="amountTextBox"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,5" Name="paidTextBox"/>
+        <Button Content="Přidat" Width="100" Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Bottom" IsDefault="True" Name="addDebtorButton" Click="AddDebtorButton_Click"/>
+    </Grid>
+</Window>
